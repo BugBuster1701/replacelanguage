@@ -25,18 +25,19 @@ namespace BugBuster\ReplaceLanguage;
  * @author     Glen Langer <BugBuster> 
  * @package    ReplaceLanguage
  */
-class ModuleReplaceLanguage
+class ModuleReplaceLanguage 
 {
 	protected static $search_engine = '';
 	protected static $old_language  = '';
 	protected static $new_language  = '';
-
+	
 	/**
 	 * Reset all properties
 	 */
 	protected static function reset() 
 	{
-		if (!isset($GLOBALS['TL_CONFIG']['rl_language'])) {
+		if (!isset($GLOBALS['TL_CONFIG']['rl_language'])) 
+		{
 			$GLOBALS['TL_CONFIG']['rl_language'] = 'de'; //default
 		}
 		self::$old_language  = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
@@ -44,45 +45,52 @@ class ModuleReplaceLanguage
 		self::$search_engine = false;
 		
 		// Import Helperclass ModuleBotDetection
-		if (file_exists(TL_ROOT . '/system/modules/botdetection/ModuleBotDetection.php')) 
+		if (file_exists(TL_ROOT . '/system/modules/botdetection/modules/ModuleBotDetection.php')) 
 		{
-			require(TL_ROOT . '/system/modules/botdetection/ModuleBotDetection.php');
 			$BT = new \BotDetection\ModuleBotDetection();
 			//Call BD_CheckBotAgent
 		    $test01 = $BT->BD_CheckBotAgent(); // Agent
 		    //Call BD_CheckBotIP
 		    $test02 = $BT->BD_CheckBotIP(); // IP
-		    if ($test01 || $test02) {
+		    if ($test01 || $test02) 
+		    {
 		    	self::$search_engine = true;
 		    }
 		    unset($BT);
-		} else {
+		} 
+		else 
+		{
 			//botdetection Modul fehlt, Abbruch
-			$this->log('BotDetection extension required!', 'ModuleReplaceLanguage reset', TL_ERROR);
+			\System::log('BotDetection extension required!', 'ModuleReplaceLanguage reset', TL_ERROR);
 		}
 	}
 	
 	/**
 	 * Check and Set Language
+	 * 
+	 * Using: ModuleReplaceLanguage::check();
 	 */
 	public static function check()
 	{
-		if (TL_MODE == 'FE') {
+		if (TL_MODE == 'FE') 
+		{
 			self::reset();
-		    if (self::$search_engine === true) {
+		    if (self::$search_engine === true) 
+		    {
 		    	$_SERVER['HTTP_ACCEPT_LANGUAGE'] = self::$new_language;
 		    }
 		}
 	}
 	
 	/**
-	 * Debug output
+	 * Debug output in file debug.log
 	 * 
-	 * Using: ModuleReplaceLanguage::check();
+	 * Using: ModuleReplaceLanguage::debug();
 	 */
 	public static function debug() 
 	{
-		if (self::$search_engine === '') {
+		if (self::$search_engine === '') 
+		{
 			self::reset();
 		}
 		$se = (self::$search_engine) ? "Yes" : "No";

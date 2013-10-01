@@ -18,4 +18,4 @@
  * Hooks
  */
 $GLOBALS['TL_HOOKS']['initializeSystem'][] = array('ReplaceLanguage\ModuleReplaceLanguage', 'check');
-
+//$GLOBALS['TL_HOOKS']['initializeSystem'][] = array('ReplaceLanguage\ModuleReplaceLanguage', 'debug');
