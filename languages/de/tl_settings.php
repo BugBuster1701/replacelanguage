@@ -1,44 +1,24 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php 
 
 /**
- * Contao Open Source CMS
- * Copyright (C) 2005-2011 Leo Feyer
+ * Contao Open Source CMS, Copyright (C) 2005-2013 Leo Feyer
  *
- * Formerly known as TYPOlight Open Source CMS.
+ * Contao Module "Replace Language"
  *
- * This program is free software: you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation, either
- * version 3 of the License, or (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- * 
- * You should have received a copy of the GNU Lesser General Public
- * License along with this program. If not, please visit the Free
- * Software Foundation website at <http://www.gnu.org/licenses/>.
- *
- * PHP version 5
- * @copyright  Glen Langer 2011 
- * @author     Glen Langer <BugBuster> 
- * @package    ReplaceLanguage 
- * @license    LGPL 
+ * @copyright  Glen Langer 2011..2013 <http://www.contao.glen-langer.de>
+ * @author     Glen Langer (BugBuster)
+ * @package    ReplaceLanguage
+ * @license    LGPL
  * @filesource
+ * @see	       https://github.com/BugBuster1701/replacelanguage
  */
 
 
 /**
  * Fields
  */
-
 $GLOBALS['TL_LANG']['tl_settings']['enable_legend'] = "Browsersprache ersetzen bei Suchmaschinen";
 $GLOBALS['TL_LANG']['tl_settings']['rl_enable']['0'] = 'Sprachersetzung aktivieren';
 $GLOBALS['TL_LANG']['tl_settings']['rl_enable']['1'] = 'Wählen Sie diese Option, um die Sprachersetzung für Suchmaschinen zu aktivieren.';
 $GLOBALS['TL_LANG']['tl_settings']['rl_language']['0'] = 'Sprache';
 $GLOBALS['TL_LANG']['tl_settings']['rl_language']['1'] = 'Sprache als ISO-Sprachcode';
-
-
-
-?>

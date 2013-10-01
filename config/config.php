@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Contao Open Source CMS, Copyright (C) 2005-2013 Leo Feyer
@@ -15,7 +15,7 @@
 
 
 /**
- * Back end modules
+ * Hooks
  */
-$GLOBALS['TL_LANG']['MOD']['replacelanguage'] = array('Replace Language', 'Browsersprache ersetzen bei Suchmaschinen');
+$GLOBALS['TL_HOOKS']['initializeSystem'][] = array('ReplaceLanguage\ModuleReplaceLanguage', 'check');
 
