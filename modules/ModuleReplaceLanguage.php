@@ -36,6 +36,11 @@ class ModuleReplaceLanguage
 	 */
 	protected static function reset() 
 	{
+	    if (!isset($GLOBALS['TL_CONFIG']['rl_enable']) || 
+	               $GLOBALS['TL_CONFIG']['rl_enable'] == false) 
+	    {
+	        return ;
+	    }
 		if (!isset($GLOBALS['TL_CONFIG']['rl_language'])) 
 		{
 			$GLOBALS['TL_CONFIG']['rl_language'] = 'de'; //default
